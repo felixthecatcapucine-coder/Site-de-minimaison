@@ -1,0 +1,55 @@
+MINI MAISONS - LE SITE WEB (VERCEL)
+===================================
+
+Ce dossier est le site complet de Mini Maisons, déjà compilé : il n'y a
+rien à construire. Il s'ouvre dans Safari sur iPhone, et sur ordinateur
+(Chrome, Edge, Safari, Firefox). Les comptes, messages, maisons et points
+sont les mêmes que dans l'appli Android (même base Firebase).
+
+
+1. METTRE LE SITE EN LIGNE
+--------------------------
+
+Méthode A - avec GitHub (sans rien installer)
+  1. Sur github.com, crée un dépôt (par exemple « mini-maisons-site »).
+  2. « Add file » > « Upload files » : glisse TOUT le contenu de ce
+     dossier (index.html, vercel.json, les dossiers assets, canvaskit,
+     icons...), puis « Commit changes ».
+  3. Sur vercel.com : « Add New... » > « Project » > importe ce dépôt.
+     - Framework Preset : Other
+     - Build Command : laisser vide (rien à construire)
+     - Output Directory : laisser vide
+  4. « Deploy ». Vercel donne une adresse du type
+     https://mini-maisons-site.vercel.app
+
+Méthode B - avec l'outil Vercel (il faut Node.js)
+  Dans ce dossier, ouvre un terminal et tape :
+      npx vercel --prod
+  Réponds aux questions (nom du projet...). Garde les réglages proposés.
+
+
+2. AUTORISER L'ADRESSE DU SITE DANS FIREBASE (à faire une fois)
+--------------------------------------------------------------
+
+Console Firebase > Authentication > Paramètres > Domaines autorisés >
+« Ajouter un domaine » : colle l'adresse donnée par Vercel, sans
+« https:// » (par exemple mini-maisons-site.vercel.app).
+
+Rien d'autre à changer : les règles Firestore restent les mêmes.
+
+
+3. SUR IPHONE : L'INSTALLER COMME UNE APPLI
+-------------------------------------------
+
+Ouvre l'adresse du site dans Safari, touche le bouton Partager, puis
+« Sur l'écran d'accueil ». Mini Maisons s'ouvre alors en plein écran,
+avec son icône, comme une vraie appli.
+
+
+4. METTRE À JOUR LE SITE
+------------------------
+
+Après une modification de l'appli, relance le script
+vercel\preparer_vercel.ps1 (dans le projet) : il recompile le site et
+refait ce zip. Remplace ensuite les fichiers sur GitHub (ou relance
+« npx vercel --prod »).
